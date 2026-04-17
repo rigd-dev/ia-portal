@@ -30,7 +30,7 @@ export async function POST(request: Request) {
           </p>
           
           <div style="text-align: center; margin: 40px 0;">
-            <a href="https://ai-fluency-quiz-seven.vercel.app/guia" 
+            <a href="https://ia.raulgzz.com/recursos/fluidez-en-ia/guia" 
                style="background-color: #FFD000; color: #0E0E0E; padding: 16px 32px; text-decoration: none; font-weight: bold; font-size: 16px; border-radius: 4px; display: inline-block;">
               Descargar Guía (PDF)
             </a>
