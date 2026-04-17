@@ -1,0 +1,37 @@
+import type { Metadata } from "next";
+import { Sora, DM_Sans } from "next/font/google";
+import "./globals.css";
+
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
+
+export const metadata: Metadata = {
+  title: "AI Fluency Challenge",
+  description: "Pon a prueba tu fluidez en Inteligencia Artificial",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="es"
+      className={`${sora.variable} ${dmSans.variable} h-full antialiased`}
+    >
+      <body className="min-h-full bg-brand-black text-brand-cream font-dm-sans">
+        {children}
+      </body>
+    </html>
+  );
+}
