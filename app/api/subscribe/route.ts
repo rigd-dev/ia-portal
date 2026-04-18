@@ -13,8 +13,20 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
     }
 
-    // Se ha configurado para usar tu dominio raulgzz.com
-    // IMPORTANTE: Asegúrate de verificar el dominio en Resend agregando los DNS en Hostinger.
+    // 1. Guardar el contacto en la audiencia de Resend (ID: General)
+    try {
+      await resend.contacts.create({
+        email: email,
+        firstName: name || '',
+        unsubscribed: false,
+        audienceId: process.env.RESEND_AUDIENCE_ID || '7e0f58d0-6d0e-4186-b6d6-de400935d0ca',
+      });
+    } catch (contactError) {
+      // No bloqueamos el envío del mail si falla el guardado del contacto, pero lo logueamos
+      console.error('Error creating contact in Resend:', contactError);
+    }
+
+    // 2. Enviar el correo con el recurso
     const { data, error } = await resend.emails.send({
       from: 'Raúl González <hola@raulgzz.com>',
       to: [email],

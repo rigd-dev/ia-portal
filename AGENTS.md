@@ -22,8 +22,9 @@ Este portal es el hub centralizado para todos los recursos (freebies, herramient
 - `/recursos/fluidez-en-ia/guia`: Versión web y generador PDF de la Guía de Fluidez (Framework 4D).
 
 ## Integraciones Clave
-- **Resend:** Usado para el envío transaccional de correos (`hola@raulgzz.com`).
+- **Resend:** Usado para el envío transaccional de correos (`hola@raulgzz.com`) y gestión de audiencia.
   - Ruta de API: `/app/api/subscribe/route.ts`
+  - **Audiencia (CRM):** Se guardan todos los contactos automáticamente en la audiencia "General" (`RESEND_AUDIENCE_ID`).
   - *Nota: Usa `export const dynamic = 'force-dynamic';` para evitar errores de compilación estática en Vercel.*
 
 ## Vínculo con Obsidian
