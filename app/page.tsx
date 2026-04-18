@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import SubscriptionForm from '@/components/SubscriptionForm';
+import SubscriptionForm from '@/src/components/SubscriptionForm';
 
 export default function Home() {
   return (
