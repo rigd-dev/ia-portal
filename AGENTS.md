@@ -25,6 +25,7 @@ Este portal es el hub centralizado para todos los recursos (freebies, herramient
 - **Resend:** Usado para el envío transaccional de correos (`hola@raulgzz.com`) y gestión de audiencia.
   - Ruta de API: `/app/api/subscribe/route.ts`
   - **Audiencia (CRM):** Se guardan todos los contactos automáticamente en la audiencia "General" (`RESEND_AUDIENCE_ID`).
+  - **Lead Tracking:** El portal DEBE capturar parámetros UTM (`utm_source`, `utm_campaign`) y enviarlos como `properties` a Resend para segmentación.
   - *Nota: Usa `export const dynamic = 'force-dynamic';` para evitar errores de compilación estática en Vercel.*
 
 ## Vínculo con Obsidian
