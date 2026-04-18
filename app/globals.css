@@ -2,21 +2,21 @@
 
 @theme {
   /* Colors */
-  --color-brand-black: #0E0E0E;
-  --color-brand-black-soft: #1C1C1C;
-  --color-brand-yellow: #FFD000;
-  --color-brand-cream: #FAF7EE;
-  --color-brand-cream-muted: #D4C89A;
-  --color-brand-tostado: #6A6050;
+  --color-brand-charcoal: #1A1A1A;
+  --color-brand-cream: #F6F5F0;
+  --color-brand-yellow: #FFBA08;
+  --color-brand-gold: #FF7A00;
+  --color-brand-white-glass: rgba(255, 255, 255, 0.6);
 
   /* Fonts */
   --font-sora: var(--font-sora);
   --font-dm-sans: var(--font-dm-sans);
+  --font-garamond: var(--font-garamond);
 }
 
 :root {
-  --background: #0E0E0E;
-  --foreground: #FAF7EE;
+  --background: #F6F5F0;
+  --foreground: #1A1A1A;
 }
 
 body {

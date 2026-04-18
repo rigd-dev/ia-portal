@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Sora, DM_Sans } from "next/font/google";
+import { Sora, DM_Sans, EB_Garamond } from "next/font/google";
 import "./globals.css";
 
 const sora = Sora({
@@ -14,9 +14,16 @@ const dmSans = DM_Sans({
   weight: ["400", "500", "700"],
 });
 
+const garamond = EB_Garamond({
+  variable: "--font-garamond",
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
-  title: "AI Fluency Challenge",
-  description: "Pon a prueba tu fluidez en Inteligencia Artificial",
+  title: "AI Infrastructure Portal",
+  description: "Domina la infraestructura digital con IA",
 };
 
 export default function RootLayout({
@@ -27,9 +34,9 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${sora.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${sora.variable} ${dmSans.variable} ${garamond.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-brand-black text-brand-cream font-dm-sans">
+      <body className="min-h-full bg-brand-cream text-brand-charcoal font-dm-sans selection:bg-brand-yellow/30">
         {children}
       </body>
     </html>

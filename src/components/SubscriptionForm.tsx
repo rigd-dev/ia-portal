@@ -34,51 +34,51 @@ export default function SubscriptionForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-white/10 p-8 rounded-3xl border border-amber-400/50 text-center space-y-4">
+      <div className="bg-brand-white-glass backdrop-blur-xl p-8 rounded-3xl border border-brand-yellow/30 text-center space-y-4 shadow-xl">
         <div className="text-4xl">🚀</div>
-        <h3 className="text-2xl font-bold text-white">¡Estás dentro!</h3>
-        <p className="text-neutral-400">Revisa tu bandeja de entrada. La Lección 1 te está esperando.</p>
+        <h3 className="text-2xl font-bold text-brand-charcoal">¡Estás dentro!</h3>
+        <p className="text-brand-charcoal/60 italic font-garamond text-lg">Revisa tu bandeja de entrada. La Lección 1 te está esperando.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-black p-8 rounded-3xl shadow-2xl border border-white/5 space-y-4">
+    <form onSubmit={handleSubmit} className="bg-brand-white-glass backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-white space-y-4 relative z-10">
       <div className="space-y-2">
-        <label className="text-white text-sm font-bold ml-1">Nombre</label>
+        <label className="text-brand-charcoal text-sm font-bold ml-1">Nombre</label>
         <input 
           required
           type="text" 
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Tu nombre" 
-          className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:border-amber-400 transition-colors"
+          className="w-full px-4 py-3 rounded-xl bg-white/40 border border-brand-charcoal/10 text-brand-charcoal placeholder:text-brand-charcoal/30 focus:outline-none focus:border-brand-yellow transition-colors"
         />
       </div>
       <div className="space-y-2">
-        <label className="text-white text-sm font-bold ml-1">Email</label>
+        <label className="text-brand-charcoal text-sm font-bold ml-1">Email</label>
         <input 
           required
           type="email" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="tu@email.com" 
-          className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:border-amber-400 transition-colors"
+          className="w-full px-4 py-3 rounded-xl bg-white/40 border border-brand-charcoal/10 text-brand-charcoal placeholder:text-brand-charcoal/30 focus:outline-none focus:border-brand-yellow transition-colors"
         />
       </div>
       
       {status === 'error' && (
-        <p className="text-red-400 text-sm font-medium text-center">{errorMessage}</p>
+        <p className="text-red-500 text-sm font-medium text-center">{errorMessage}</p>
       )}
 
       <button 
         disabled={status === 'loading'}
-        className="w-full py-4 bg-amber-400 text-black font-extrabold rounded-xl hover:bg-amber-300 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full py-4 bg-brand-yellow text-brand-charcoal font-extrabold rounded-xl hover:bg-brand-gold hover:text-white transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
       >
         {status === 'loading' ? 'Inscribiendo...' : 'Inscribirme Gratis'}
       </button>
       
-      <p className="text-white/40 text-[10px] text-center pt-2">
+      <p className="text-brand-charcoal/40 text-[10px] text-center pt-2">
         Al inscribirte aceptas recibir lecciones diarias de IA por 7 días. Cero spam.
       </p>
     </form>
