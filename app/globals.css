@@ -1,12 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
+  /* Editorial Tech Light Colors */
   --color-brand-charcoal: #1A1A1A;
   --color-brand-cream: #F6F5F0;
   --color-brand-yellow: #FFBA08;
   --color-brand-gold: #FF7A00;
   --color-brand-white-glass: rgba(255, 255, 255, 0.6);
+
+  /* Legacy Dark Quiz Colors */
+  --color-brand-black: #0E0E0E;
+  --color-brand-black-soft: #1C1C1C;
+  --color-brand-cream-muted: #E2DFD5;
+  --color-brand-tostado: #C4B594;
 
   /* Fonts */
   --font-sora: var(--font-sora);
@@ -17,6 +23,21 @@
 :root {
   --background: #F6F5F0;
   --foreground: #1A1A1A;
+}
+
+/* Force Dark Mode when Quiz is present */
+body:has(.quiz-dark-theme) {
+  background-color: #0E0E0E !important;
+  color: #FAF7EE !important;
+}
+
+.quiz-dark-theme {
+  --background: #0E0E0E !important;
+  --foreground: #FAF7EE !important;
+  background-color: #0E0E0E !important;
+  color: #FAF7EE !important;
+  min-height: 100vh;
+  width: 100%;
 }
 
 body {
