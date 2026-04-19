@@ -27,7 +27,7 @@ export default function LandingScreen() {
   const startQuiz = useQuizStore((state) => state.startQuiz);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center bg-transparent overflow-hidden p-6">
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-brand-black overflow-hidden p-6">
 
       <motion.div
         variants={container}

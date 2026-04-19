@@ -31,7 +31,7 @@ export default function QuizContainer() {
     // AnimatedBackground lives HERE — outside AnimatePresence — so it never
     // unmounts/remounts during screen transitions. This eliminates the visual
     // "pop" caused by the orbs re-initializing on every screen change.
-    <div className="quiz-dark-theme" style={{ position: 'relative', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', minHeight: '100vh' }}>
       <AnimatedBackground />
 
       <AnimatePresence mode="wait">
