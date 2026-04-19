@@ -44,7 +44,7 @@ export default function ScenarioScreen() {
   })();
 
   return (
-    <div className="relative min-h-screen bg-brand-black flex flex-col overflow-hidden">
+    <div className="relative min-h-screen bg-transparent flex flex-col overflow-hidden">
 
       {/* ── Progress Bar ─────────────────────────────────────────────────────── */}
       <div className="relative z-10 w-full h-[5px] bg-[#1C1C1C] flex-shrink-0">
