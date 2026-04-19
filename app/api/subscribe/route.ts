@@ -7,23 +7,40 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
-    const { name, email, score } = await request.json();
+    const { name, email, score, level, lead_source } = await request.json();
 
     if (!email) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
     }
 
-    // 1. Guardar el contacto en la audiencia de Resend (ID: General)
+    // 1. Guardar o actualizar el contacto en Resend (Global Contacts)
+    // Usamos 'properties' para segmentación futura
     try {
       await resend.contacts.create({
         email: email,
         firstName: name || '',
         unsubscribed: false,
-        audienceId: process.env.RESEND_AUDIENCE_ID || '7e0f58d0-6d0e-4186-b6d6-de400935d0ca',
+        properties: {
+          score: score,
+          level: level,
+          lead_source: lead_source || 'quiz_fluidez_ia'
+        }
       });
-    } catch (contactError) {
-      // No bloqueamos el envío del mail si falla el guardado del contacto, pero lo logueamos
-      console.error('Error creating contact in Resend:', contactError);
+    } catch (createError: any) {
+      // Si el contacto ya existe, intentamos actualizar sus propiedades
+      try {
+        await resend.contacts.update({
+          email: email,
+          firstName: name || '',
+          properties: {
+            score: score,
+            level: level,
+            lead_source: lead_source || 'quiz_fluidez_ia'
+          }
+        });
+      } catch (updateError) {
+        console.error('Error updating existing contact:', updateError);
+      }
     }
 
     // 2. Enviar el correo con el recurso

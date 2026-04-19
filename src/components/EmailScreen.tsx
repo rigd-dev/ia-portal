@@ -25,11 +25,19 @@ export default function EmailScreen() {
     e.preventDefault();
     setLoading(true);
 
+    const level = score >= 90 ? 'Arquitecto' : score >= 70 ? 'Ingeniero' : 'Explorador';
+    
     try {
       const response = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, score }),
+        body: JSON.stringify({ 
+          name, 
+          email, 
+          score,
+          level,
+          lead_source: 'quiz_fluidez_ia'
+        }),
       });
 
       if (!response.ok) {
